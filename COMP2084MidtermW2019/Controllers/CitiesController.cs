@@ -18,7 +18,7 @@ namespace COMP2084MidtermW2019.Controllers
         public ActionResult Index()
         {
             var cities = db.Cities.Include(c => c.Country);
-            return View();
+            return View(cities);
         }
 
         // GET: Cities/Details/5
