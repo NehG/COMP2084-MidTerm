@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<COMP2084MidtermW2019.Models.City>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cities";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Cities</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +13,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Country.Name)
+            @*@Html.DisplayNameFor(model => model.Country.Name)*@
+            Country
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            City
         </th>
         <th>
             @Html.DisplayNameFor(model => model.YearFounded)
@@ -43,8 +45,11 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
+            @Html.ActionLink("Details", "Details", new { id = item.CityId }) |
+            @if (User.IsInRole("Administrator"))
+            {   
+                @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
+            }
         </td>
     </tr>
 }
