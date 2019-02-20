@@ -45,8 +45,9 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CityId }) |
-            @if (User.IsInRole("Administrator"))
+            @Html.ActionLink("Details", "Details", new { id = item.CityId }) | 
+
+            @if (User.Identity.IsAuthenticated)
             {   
                 @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
             }
