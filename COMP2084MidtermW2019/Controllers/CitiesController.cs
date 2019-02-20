@@ -95,6 +95,7 @@ namespace COMP2084MidtermW2019.Controllers
         }
 
         // GET: Cities/Delete/5
+        [Authorize] // Making Delete Method Private
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +111,7 @@ namespace COMP2084MidtermW2019.Controllers
         }
 
         // POST: Cities/Delete/5
+        [Authorize] // Making DeleteConfirm Method Private
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
